@@ -1,12 +1,12 @@
 /*
 Topic: Database Keys
-1. Creating the Keys
+1. Creating the Tables
 2. Unique Keys
 3. Primary Keys
 4. Foreign Keys
 */
 
--- 1. Creating the Keys
+-- 1. Creating the Tables
 
 CREATE TABLE student(
    student_id INT PRIMARY KEY,
