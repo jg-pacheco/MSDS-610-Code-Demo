@@ -1,0 +1,89 @@
+/*
+Topic: Database Keys
+1. Creating the Keys
+2. Unique Keys
+3. Primary Keys
+4. Foreign Keys
+*/
+
+-- 1. Creating the Keys
+
+CREATE TABLE student(
+   student_id INT PRIMARY KEY,
+   first_name VARCHAR(100),
+   last_name VARCHAR(100),
+   cell_phone VARCHAR(20) UNIQUE,
+   passport_id INT UNIQUE
+);
+
+CREATE TABLE topic(
+   student_id INT REFERENCES student (student_id),
+   topic VARCHAR(100)
+);
+
+SELECT *
+FROM student
+
+SELECT *
+FROM topic
+
+-- 2. Unique Keys
+
+SELECT
+   COUNT(Distinct passport_id) AS distinct_passport_id,
+   COUNT(passport_id) AS total_passport_id,
+   COUNT(Distinct first_name) AS distinct_first_name,
+   COUNT(first_name) AS total_first_name
+FROM student
+
+SELECT *
+FROM student
+
+INSERT INTO student
+VALUES(9, 'Cody', 'Carroll', '271-8492', 199731320)
+
+-- 3. Primary Keys
+
+SELECT *
+FROM student
+
+INSERT INTO student
+VALUES(NULL, 'Cody', 'Carroll', '415-207-9384', 093849765)
+
+INSERT INTO student
+VALUES(9, 'Cody', NULL, '415-207-9384', 093849765)
+
+SELECT *
+FROM student
+
+DELETE FROM student
+WHERE first_name = 'Cody'
+
+SELECT *
+FROM student
+
+-- 4. Foreign Keys
+
+SELECT *
+FROM topic
+
+INSERT INTO topic
+VALUES(8, 'Bootstrapping')
+
+SELECT *
+FROM topic
+
+INSERT INTO topic
+VALUES(9, 'Bootstrapping')
+
+SELECT *
+FROM topic
+
+DELETE FROM topic
+WHERE topic = 'Bootstrapping'
+
+SELECT *
+FROM topic
+
+SELECT *
+FROM student
